@@ -115,3 +115,20 @@ Visit `http://localhost:3000`.
 - Add webhook handling for subscription cancellation and payment failure.
 - Add audit logging for admin endpoints.
 - Add API rate limiting and abuse controls.
+GenesisBuilder AI helps users generate profitable startup ideas using artificial intelligence.
+
+Features:
+- AI business idea generator
+- startup launch plan generator
+- dashboard to save ideas
+- subscription plans
+
+Tech Stack:
+- Next.js
+- OpenAI API
+- Supabase
+- Stripe
+- TailwindCSS
+
+Deployment:
+Deploy easily on Vercel.
