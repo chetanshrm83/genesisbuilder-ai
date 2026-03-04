@@ -1,5 +1,3 @@
-# GenesisBuilder AI
-
 GenesisBuilder AI helps users generate profitable startup ideas using artificial intelligence.
 
 Features:
