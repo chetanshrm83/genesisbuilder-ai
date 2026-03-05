@@ -1,5 +1,6 @@
 import PDFDocument from "pdfkit";
 
+<<<<<<< codex/build-launchpilot-ai-saas-product
 type Competitor = { competitor: string; strength: string; weakness: string; opportunity: string };
 type IdeaOutput = {
   startupIdea: string;
@@ -17,6 +18,9 @@ type IdeaOutput = {
   launchChecklist: string[];
   estimatedMonthlyRevenuePotential: string;
 };
+=======
+import type { IdeaOutput } from "@/lib/idea-output";
+>>>>>>> main
 
 export async function ideaToPdfBuffer(idea: IdeaOutput) {
   const doc = new PDFDocument({ margin: 36 });

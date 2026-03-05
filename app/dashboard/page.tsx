@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { createClient } from "@/lib/supabase-browser";
 import { getAccessToken } from "@/lib/auth-token";
 
+<<<<<<< codex/build-launchpilot-ai-saas-product
 type Competitor = { competitor: string; strength: string; weakness: string; opportunity: string };
 type IdeaOutput = {
   startupIdea: string;
@@ -23,6 +24,9 @@ type IdeaOutput = {
   launchChecklist: string[];
   estimatedMonthlyRevenuePotential: string;
 };
+=======
+import type { IdeaOutput } from "@/lib/idea-output";
+>>>>>>> main
 
 type IdeaRecord = { id: string; output: IdeaOutput; created_at: string };
 
@@ -188,6 +192,7 @@ export default function DashboardPage() {
 
             <div className="mt-5 grid gap-4 md:grid-cols-2">
               <p><strong>Domain ideas:</strong> {selected.output.domainSuggestions.join(", ")}</p>
+              <p><strong>Domain ideas:</strong> {(selected.output.domainSuggestions ?? []).join(", ")}</p>
               <p><strong>Revenue model:</strong> {selected.output.revenueModel}</p>
               <p><strong>Pricing:</strong> {selected.output.pricingStrategy}</p>
               <p><strong>Revenue potential:</strong> {selected.output.estimatedMonthlyRevenuePotential}</p>
@@ -220,24 +225,49 @@ export default function DashboardPage() {
 
             <div className="mt-6">
               <h4 className="text-lg font-semibold">Landing Page Copy</h4>
+<<<<<<< codex/build-launchpilot-ai-saas-product
               <p className="mt-2 text-slate-300"><strong>{selected.output.landingPageCopy.headline}</strong> — {selected.output.landingPageCopy.subheadline}</p>
               <p className="text-slate-300">CTA: {selected.output.landingPageCopy.cta}</p>
+=======
+              <p className="mt-2 text-slate-300"><strong>{selected.output.landingPageCopy?.headline ?? ""}</strong> — {selected.output.landingPageCopy?.subheadline ?? ""}</p>
+              <p className="text-slate-300">CTA: {selected.output.landingPageCopy?.cta ?? ""}</p>
+>>>>>>> main
             </div>
 
             <div className="mt-6">
               <h4 className="text-lg font-semibold">Marketing Plan</h4>
               <p className="mt-2 text-slate-300">{selected.output.marketingPlan}</p>
               <ul className="mt-3 list-disc space-y-1 pl-6 text-slate-200">
+<<<<<<< codex/build-launchpilot-ai-saas-product
                 {selected.output.marketingPosts.map((post, idx) => (
+=======
+                {(selected.output.marketingPosts ?? []).map((post, idx) => (
+>>>>>>> main
                   <li key={`${selected.id}-post-${idx}`}>{post}</li>
                 ))}
               </ul>
             </div>
 
+<<<<<<< codex/build-launchpilot-ai-saas-product
             <div className="mt-6">
               <h4 className="text-lg font-semibold">Competitor Analysis</h4>
               <div className="mt-2 space-y-3">
                 {selected.output.competitorAnalysis.map((c, idx) => (
+=======
+
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold">Launch Checklist</h4>
+              <ul className="mt-2 list-disc space-y-1 pl-6 text-slate-200">
+                {(selected.output.launchChecklist ?? []).map((step, idx) => (
+                  <li key={`${selected.id}-step-${idx}`}>{step}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold">Competitor Analysis</h4>
+              <div className="mt-2 space-y-3">
+                {(selected.output.competitorAnalysis ?? []).map((c, idx) => (
+>>>>>>> main
                   <div key={`${selected.id}-comp-${idx}`} className="rounded-md border border-slate-700 p-3">
                     <p className="font-semibold">{c.competitor}</p>
                     <p className="text-sm text-slate-300">Strength: {c.strength}</p>

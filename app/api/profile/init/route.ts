@@ -8,6 +8,11 @@ export async function POST(request: Request) {
 
   const supabase = createServiceClient();
   const { error } = await supabase.from("profiles").upsert({ id: user.id, email: user.email, plan: "free" });
+  const { error } = await supabase.from("profiles").upsert(
+    { id: user.id, email: user.email },
+    { onConflict: "id", ignoreDuplicates: false }
+  );
+
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   return NextResponse.json({ ok: true });

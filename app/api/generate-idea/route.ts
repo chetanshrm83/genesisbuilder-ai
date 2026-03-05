@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase-server";
 import { openai, buildIdeaPrompt } from "@/lib/openai";
 import { getUserFromRequest } from "@/lib/api-auth";
+<<<<<<< codex/build-launchpilot-ai-saas-product
+=======
+import { normalizeIdeaOutput } from "@/lib/idea-output";
+>>>>>>> main
 
 export async function POST(request: Request) {
   const input = await request.json();
@@ -38,11 +42,23 @@ export async function POST(request: Request) {
   const raw = completion.choices[0]?.message.content;
   if (!raw) return NextResponse.json({ error: "AI did not return content." }, { status: 500 });
 
+<<<<<<< codex/build-launchpilot-ai-saas-product
   const output = JSON.parse(raw);
   if (!Array.isArray(output.marketingPosts) || output.marketingPosts.length !== 10) {
     return NextResponse.json({ error: "AI output format invalid. Please regenerate." }, { status: 422 });
   }
 
+=======
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return NextResponse.json({ error: "AI output could not be parsed. Please retry." }, { status: 502 });
+  }
+
+  const output = normalizeIdeaOutput(parsed);
+
+>>>>>>> main
   const { data, error } = await supabase
     .from("ideas")
     .insert({ user_id: user.id, input, output })
