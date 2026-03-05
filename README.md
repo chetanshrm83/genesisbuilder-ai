@@ -115,6 +115,8 @@ Visit `http://localhost:3000`.
 - Add webhook handling for subscription cancellation and payment failure.
 - Add audit logging for admin endpoints.
 - Add API rate limiting and abuse controls.
+<<<<<<< codex/build-launchpilot-ai-saas-product
+=======
 GenesisBuilder AI helps users generate profitable startup ideas using artificial intelligence.
 
 Features:
@@ -132,3 +134,4 @@ Tech Stack:
 
 Deployment:
 Deploy easily on Vercel.
+>>>>>>> main

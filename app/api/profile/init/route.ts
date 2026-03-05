@@ -7,6 +7,7 @@ export async function POST(request: Request) {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const supabase = createServiceClient();
+  const { error } = await supabase.from("profiles").upsert({ id: user.id, email: user.email, plan: "free" });
   const { error } = await supabase.from("profiles").upsert(
     { id: user.id, email: user.email },
     { onConflict: "id", ignoreDuplicates: false }
